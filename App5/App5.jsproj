@@ -58,6 +58,7 @@
     <Content Include="images\smalllogo.png" />
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
+<<<<<<< HEAD
     <Content Include="js\createjs-2013.02.12.min.js" />
     <Content Include="js\data.js" />
     <Content Include="js\default.js" />
@@ -74,6 +75,12 @@
     <Content Include="movies\1080_640_20s.mp4" />
     <Content Include="movies\1080_640_40s.mp4" />
     <Content Include="movies\1080_640_60s.mp4" />
+=======
+    <Content Include="js\data.js" />
+    <Content Include="js\default.js" />
+    <Content Include="js\navigator.js" />
+    <Content Include="movies\onethird_10s.mp4" />
+>>>>>>> 161c98ea98426438ee8e356085d9de70a5b25607
     <Content Include="pages\items\items.css" />
     <Content Include="pages\items\items.html" />
     <Content Include="pages\items\items.js" />
