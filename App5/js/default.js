@@ -22,7 +22,7 @@
             if (app.sessionState.history) {
                 nav.history = app.sessionState.history;
             }
-            args.setPromise(WinJS.UI.processAll().then(function () {
+            args.setPromise(WinJS.UI.processAll().then(init).then(function () {
                 if (nav.location) {
                     nav.history.current.initialPlaceholder = true;
                     return nav.navigate(nav.location, nav.state);
@@ -32,6 +32,53 @@
             }));
         }
     });
+
+    var stage;
+    function init() {
+        var mc = document.getElementById("video1");
+        TweenLite.to(mc, 2, { x: 65, y: 117, rotation: 180 });
+        TweenLite.to(mc, 2, { y: 0, rotation: 90, delay: 2, writeover: false });
+        stage = new createjs.Stage("gameCanvas");
+        createjs.Ticker.addEventListener("tick", stage);
+
+        // Create the MovieClip
+        var mc = new createjs.MovieClip(null, 0, true, {
+            start: 0,
+            middle: 40
+        });
+        stage.addChild(mc);
+
+        // Create the States. Each state is just a circle shape.
+        var state1 = new createjs.Shape(
+        new createjs.Graphics().beginFill("#999999")
+            .drawCircle(100, 100, 100));
+        var state2 = new createjs.Shape(
+        new createjs.Graphics().beginFill("#5a9cfb")
+            .drawCircle(100, 100, 100));
+
+        // Create a tween for each shape, animating from one side to the other.
+        mc.timeline.addTween(
+        createjs.Tween.get(state1)
+            .to({
+                x: 0
+            }).to({
+                x: 760
+            }, 40).to({
+                x: 0
+            }, 40));
+        mc.timeline.addTween(
+        createjs.Tween.get(state2)
+            .to({
+                x: 760
+            }).to({
+                x: 0
+            }, 40).to({
+                x: 760
+            }, 40));
+
+        // Play the animation starting from the middle. See the MovieClip constructor above where the labels are specified.
+        mc.gotoAndPlay("middle");
+    }
 
     app.oncheckpoint = function (args) {
         // TODO: This application is about to be suspended. Save any state
