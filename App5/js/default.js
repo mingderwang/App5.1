@@ -23,23 +23,34 @@
                 nav.history = app.sessionState.history;
             }
 
-            args.setPromise(WinJS.UI.processAll().then(init).then(function () {
+            args.setPromise(WinJS.UI.processAll().then(function () {
                 if (nav.location) {
                     nav.history.current.initialPlaceholder = true;
                     return nav.navigate(nav.location, nav.state);
                 } else {
                     return nav.navigate(Application.navigator.home);
                 }
-            }));
+            }).then(init));
         }
     });
 
     var stage;
     function init() {
-        var mc = document.getElementById("video1");
-        TweenLite.to(mc, 20, { x: 165, y: 117, rotation: 180 });
-
-
+        var mc1 = document.getElementById("video1");
+        var mc2 = document.getElementById("video2");
+        var mc3 = document.getElementById("contenthost");
+        var myTimeline = new TimelineLite();
+ 
+        //this will have 3 tween starting one after the one before is done
+        myTimeline.append(new TweenMax(mc1, 0, { y: 0, x: -1080 }));     
+        myTimeline.append(new TweenMax(mc2, 0, { y: 0, x: -1080 }));
+        myTimeline.append(new TweenMax(mc3, 0, { y: 0, x: -1080 }));
+        myTimeline.append(new TweenMax(mc1, 2, { y: 0, x: 0 }));
+        myTimeline.append(new TweenMax(mc2, 1, { y: 0, x: 0, repeat: 2 }));
+        myTimeline.append(new TweenMax(mc3, 2, { bezier: [{ x: 0, y:640 }, { x: 0, y: 0 }], orientToBezier: true, ease: Bounce.easeOut }));
+ 
+        myTimeline.play();
+        // for (var i:int = 0; i < gridBoxes.length; i++) { }
 
         stage = new createjs.Stage("gameCanvas");
         createjs.Ticker.addEventListener("tick", stage);
