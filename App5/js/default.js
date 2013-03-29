@@ -22,11 +22,8 @@
             if (app.sessionState.history) {
                 nav.history = app.sessionState.history;
             }
-<<<<<<< HEAD
+
             args.setPromise(WinJS.UI.processAll().then(init).then(function () {
-=======
-            args.setPromise(WinJS.UI.processAll().then(function () {
->>>>>>> 161c98ea98426438ee8e356085d9de70a5b25607
                 if (nav.location) {
                     nav.history.current.initialPlaceholder = true;
                     return nav.navigate(nav.location, nav.state);
@@ -37,7 +34,6 @@
         }
     });
 
-<<<<<<< HEAD
     var stage;
     function init() {
         var mc = document.getElementById("video1");
@@ -87,8 +83,6 @@
         mc.gotoAndPlay("middle");
     }
 
-=======
->>>>>>> 161c98ea98426438ee8e356085d9de70a5b25607
     app.oncheckpoint = function (args) {
         // TODO: This application is about to be suspended. Save any state
         // that needs to persist across suspensions here. If you need to 
