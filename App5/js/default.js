@@ -36,8 +36,10 @@
     var stage;
     function init() {
         var mc = document.getElementById("video1");
-        TweenLite.to(mc, 2, { x: 65, y: 117, rotation: 180 });
-        TweenLite.to(mc, 2, { y: 0, rotation: 90, delay: 2, writeover: false });
+        TweenLite.to(mc, 20, { x: 165, y: 117, rotation: 180 });
+
+
+
         stage = new createjs.Stage("gameCanvas");
         createjs.Ticker.addEventListener("tick", stage);
 
@@ -62,18 +64,18 @@
             .to({
                 x: 0
             }).to({
-                x: 760
+                x: 880
             }, 40).to({
                 x: 0
             }, 40));
         mc.timeline.addTween(
         createjs.Tween.get(state2)
             .to({
-                x: 760
+                x: 880
             }).to({
                 x: 0
             }, 40).to({
-                x: 760
+                x: 880
             }, 40));
 
         // Play the animation starting from the middle. See the MovieClip constructor above where the labels are specified.
