@@ -37,7 +37,9 @@
     var stage;
     function init() {
         var mc1 = document.getElementById("video1");
+        mc1.src = "movies/1080_640_20s.mp4";
         var mc2 = document.getElementById("video2");
+        mc2.src = "http://www.gopicfreak.com/wp-content/uploads/2013/03/beautiful-girl-wallpaper-115.jpg";
         var mc3 = document.getElementById("contenthost");
         var myTimeline = new TimelineLite();
  

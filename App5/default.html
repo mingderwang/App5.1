@@ -21,10 +21,10 @@
     <script src="js/TweenMax.min.js"></script>
 </head>
 <body>
-    <video id="video1" src="movies/1080_640_20s.mp4" width="1080" height="640" autoplay>
+    <video id="video1" width="1080" height="640" autoplay>
     </video>
       
-    <image id="video2" src="http://www.gopicfreak.com/wp-content/uploads/2013/03/beautiful-girl-wallpaper-115.jpg" width="1080" height="640" autoplay>
+    <image id="video2" width="1080" height="640" autoplay>
     </image>
 
     <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: '/pages/items/items.html'}"></div>
@@ -33,6 +33,16 @@
     <!-- <div id="appbar" data-win-control="WinJS.UI.AppBar">
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmd', label:'Command', icon:'placeholder'}" type="button"></button>
     </div> -->
-
+     <!-- App bar -->
+    <div id="appbar" data-win-control="WinJS.UI.AppBar" aria-label="Command Bar" data-win-options="{
+        commands:[
+            {id:'home', label:'Menu', icon:'&#xE10F;', section: 'global'},
+            {id:'play', label:'Game', icon:'&#xE102;', section: 'global'},
+            {id:'rules', label:'Rules', icon:'&#xE104;', section: 'global'},
+            {id:'scores', label:'Scores', icon:'&#xE113;', section: 'global'},
+            {id:'credits', label:'Credits', icon:'&#xE10C;', section: 'global'},
+            {id:'newgame', label:'New', icon:'&#xE10E;', section: 'selection'},
+            {id:'pause', label:'Pause', icon:'&#xE103;', section: 'selection'}
+        ]}"></div>
 </body>
 </html>
