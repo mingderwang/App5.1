@@ -36,11 +36,12 @@
         mc1.src = "movies/1080_1920_20s.mp4";
         mc1.width = 1080;
         mc1.height = 1920;
-        mc1.addEventListener("MSPointerUp", stage2, false);
+        mc1.removeEventListener("MSPointerUp", stage1, false);
+        mc1.addEventListener("MSPointerUp", stageA, false);
+        mc1.onended = function(e) {
+            stage2();
+        }
         var myTimeline = new TimelineLite();
-
-        var mc2 = document.getElementById("video2");
-
 
         //this will have 3 tween starting one after the one before is done
         myTimeline.append(new TweenMax(mc1, 0, { y: 0, x: -1080 }));
@@ -48,16 +49,76 @@
         myTimeline.play();
         
     }
-    function stage2() {
+
+    function stage2() {
         var mc1 = document.getElementById("video1");
         mc1.src = "movies/1080_640_20s.mp4";
         mc1.width = 1080;
         mc1.height = 640;
-        mc1.removeEventListener("MSPointerUp", stage2, false);
+        mc1.removeEventListener("MSPointerUp", stageA, false);
+        mc1.addEventListener("MSPointerUp", stageA, false);
+        mc1.onended = function (e) {
+            stage3();
+        }
+
+        var mc2 = document.getElementById("video2");
+        mc2.src = "images/u8_normal.jpg";
+        mc2.width = 1080;
+        mc2.height = 1280;
+
+        var myTimeline = new TimelineLite();
+
+        //this will have 3 tween starting one after the one before is done
+        myTimeline.append(new TweenMax(mc1, 0, { y: -640, x: 0 }));
+        myTimeline.append(new TweenMax(mc2, 0, { y: 1920, x: 0 }));
+        myTimeline.append(new TweenMax(mc2, 2, { y: 0, x: 0 }));
+        myTimeline.append(new TweenMax(mc1, 2, { y: 0, x: 0 }));
+        myTimeline.play();
+
+    }
+
+    function stage3() {
+        var mc1 = document.getElementById("video1");
+        mc1.src = "movies/1080_640_20s.mp4";
+        mc1.width = 1080;
+        mc1.height = 640;
+        mc1.removeEventListener("MSPointerUp", stageA, false);
+        mc1.addEventListener("MSPointerUp", stageA, false);
+        mc1.onended = function (e) {
+            stage1();
+        }
+
+        var mc2 = document.getElementById("video2");
+        mc2.src = "images/you-re-beautiful-wallpaper-96.jpg";
+        mc2.width = 1080;
+        mc2.height = 640;
+
+        var mc3 = document.getElementById("contenthost");
+        var myTimeline = new TimelineLite();
+
+        //this will have 3 tween starting one after the one before is done
+        myTimeline.append(new TweenMax(mc1, 0, { y: 1920, x: 0 }));
+        myTimeline.append(new TweenMax(mc2, 0, { y: 0, x: 1080 }));
+        myTimeline.append(new TweenMax(mc3, 0, { y: 1920, x: 0 }));
+        myTimeline.append(new TweenMax(mc1, 2, { y: 0, x: 0 }));
+        myTimeline.append(new TweenMax(mc2, 2, { y: 0, x: 0 }));
+        myTimeline.append(new TweenMax(mc3, 2, { y: 0, x: 0 }));
+        myTimeline.append(new TweenMax(mc3, 2, { y: 0, x: 0 }));
+        myTimeline.play();
+
+    }
+    function stageA() {
+        var mc1 = document.getElementById("video1");
+        mc1.src = "movies/1080_640_20s.mp4";
+        mc1.width = 1080;
+        mc1.height = 640;
+        mc1.removeEventListener("MSPointerUp", stageA, false);
         mc1.addEventListener("MSPointerUp", stage1, false);
 
         var mc2 = document.getElementById("video2");
-        mc2.src = "http://www.gopicfreak.com/wp-content/uploads/2013/03/beautiful-girl-wallpaper-115.jpg";
+        mc2.width = 1080;
+        mc2.height = 640;
+        mc2.src = "images/beautiful-girl-wallpaper-115.jpg";
         var mc3 = document.getElementById("contenthost");
         var myTimeline = new TimelineLite();
 
@@ -72,7 +133,6 @@
 
         myTimeline.play();
         // for (var i:int = 0; i < gridBoxes.length; i++) { }
-
         // for WinJS navigator
         if (nav.location) {
             nav.history.current.initialPlaceholder = true;

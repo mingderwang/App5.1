@@ -17,7 +17,7 @@
     <Application Id="App" StartPage="default.html">
       <VisualElements DisplayName="App5" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="App5" ForegroundText="light" BackgroundColor="#464646">
         <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="images\splashscreen.png" />
+        <SplashScreen Image="images\img_620x300.png" />
       </VisualElements>
     </Application>
   </Applications>
