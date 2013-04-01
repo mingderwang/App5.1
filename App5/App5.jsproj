@@ -54,6 +54,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="css\default.css" />
+    <Content Include="images\img.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
     <Content Include="images\splashscreen.png" />
@@ -64,10 +65,11 @@
     <Content Include="js\movieclip-0.5.0.min.js" />
     <Content Include="js\navigator.js" />
     <Content Include="js\TimelineMax.min.js" />
+    <Content Include="js\Tween.js" />
     <Content Include="js\TweenMax.min.js" />
     <Content Include="movies\1080_1280_20s.mp4" />
     <Content Include="movies\1080_1280_40s.mp4" />
-    <Content Include="movies\1080_128_60s.mp4" />
+    <Content Include="movies\1080_1280_60s.mp4" />
     <Content Include="movies\1080_1920_20s.mp4" />
     <Content Include="movies\1080_1920_40s.mp4" />
     <Content Include="movies\1080_1920_60s.mp4" />
